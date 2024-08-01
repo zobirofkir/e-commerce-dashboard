@@ -4,7 +4,6 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 import Loader from './common/Loader';
 import PageTitle from './components/PageTitle';
 import SignIn from './pages/Authentication/SignIn';
-import Calendar from './pages/Calendar';
 import Chart from './pages/Chart';
 import ECommerce from './pages/Dashboard/ECommerce';
 import Tables from './pages/Tables';
@@ -12,6 +11,7 @@ import DefaultLayout from './layout/DefaultLayout';
 import Order from './pages/Order';
 import Offer from './pages/Offer';
 import ProtectRoutes from './auth/ProtectRoutes';
+import LogoutComponent from './components/LogoutComponent';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -56,15 +56,6 @@ function App() {
                 }
               />
               <Route
-                path="/calendar"
-                element={
-                  <>
-                    <PageTitle title="Calendar | csw-shop" />
-                    <Calendar />
-                  </>
-                }
-              />
-              <Route
                 path="/products"
                 element={
                   <>
@@ -100,6 +91,8 @@ function App() {
                   </>
                 }
               />
+
+              <Route path="/logout" element={<LogoutComponent />} />
             </Routes>
           </DefaultLayout>
         }
